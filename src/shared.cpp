@@ -28,6 +28,12 @@ MyShared<T>::MyShared(MyShared<T>&& other) noexcept : ptr_(other.ptr_) {
 }
 
 template <typename T>
+MyShared<T>& MyShared<T>::operator=(MyShared<T>&& other) noexcept {
+    other.ptr_ = nullptr;
+    return *this;
+}
+
+template <typename T>
 T* MyShared<T>::get() { 
     return ptr_;
 }

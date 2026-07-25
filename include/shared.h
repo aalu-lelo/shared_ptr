@@ -11,6 +11,7 @@ class MyShared {
         MyShared(const MyShared<T>& other);
         MyShared<T>& operator=(const MyShared<T>& other);
         MyShared(MyShared<T>&& other) noexcept;
+        MyShared<T>& operator=(MyShared<T>&& other) noexcept;
         ~MyShared();
         T* get();
         int use_count();
