@@ -3,6 +3,7 @@ project(MyProject CXX)
 
 add_executable(shared_ptr.tsk 
     src/shared.cpp
+    src/main.cpp
 )
 
 target_include_directories(shared_ptr.tsk PRIVATE include)

@@ -9,3 +9,8 @@ make
 `
 ctest --test-dir build 
 `
+
+## Clean
+`
+make clean
+`

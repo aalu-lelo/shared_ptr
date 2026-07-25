@@ -1,18 +1,33 @@
 #include <shared.h>
 
-int main() {
-    int* p = nullptr;
-    {
-        MyShared<int> p2(new int(20));
-        p = p2.get();
-        std::cout << *p << std::endl;
-        p2.reset();
-        std::cout << p2.use_count() << std::endl;
-    }
-    std::cout << *p << std::endl;
-    return 0;
+
+template <typename T>
+MyShared<T>::MyShared(T* ptr) : ptr_(ptr) {
+    ref_count_ = 1;
 }
-/*
-shared_ptr<int> p1(new int(10));
-MyShared<int> p2(new int(20));
-*/
+
+template <typename T>
+T* MyShared<T>::get() { 
+    return ptr_;
+}
+
+template <typename T>
+int MyShared<T>::use_count() { return ref_count_; }
+
+template <typename T>
+void MyShared<T>::reset() {
+    ref_count_--;
+    if(ref_count_ == 0) {
+        delete ptr_;
+        ptr_ = nullptr;
+    }
+}
+
+template <typename T>
+MyShared<T>::~MyShared() { 
+    std::cout << "Destructor called" << std::endl;
+    delete ptr_; 
+}
+
+template class MyShared<int>;
+
