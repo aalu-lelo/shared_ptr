@@ -7,6 +7,11 @@ MyShared<T>::MyShared(T* ptr) : ptr_(ptr) {
 }
 
 template <typename T>
+MyShared<T>::MyShared(MyShared<T> &other) : ptr_(other.ptr_) {
+    ref_count_++;
+}
+
+template <typename T>
 T* MyShared<T>::get() { 
     return ptr_;
 }
@@ -25,8 +30,11 @@ void MyShared<T>::reset() {
 
 template <typename T>
 MyShared<T>::~MyShared() { 
-    std::cout << "Destructor called" << std::endl;
-    delete ptr_; 
+    ref_count_--;
+    if(ref_count_ == 0) {
+        delete ptr_;
+        ptr_ = nullptr;
+    }
 }
 
 template class MyShared<int>;

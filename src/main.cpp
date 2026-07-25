@@ -15,7 +15,9 @@ int main() {
     // Test to check if the copy constructor is working correctly.
     {
         MyShared<int> p2(new int(30));
+        std::cout << p2.use_count() << std::endl;
         MyShared<int> p3(p2);
+        std::cout << p2.use_count() << std::endl;
         std::cout<< *p2.get() << std::endl;
         std::cout << *p3.get() << std::endl;
     }
