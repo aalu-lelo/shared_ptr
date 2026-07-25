@@ -63,7 +63,7 @@ int main() {
         p11.reset();
         p10.reset();
         std::cout << p12.use_count() << std::endl;
-        std::cout << *(p12.get()) << std::endl;
+        std::cout << *p12 << std::endl;
     }
 
     return 0;

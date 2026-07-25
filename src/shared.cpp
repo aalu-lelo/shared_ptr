@@ -55,6 +55,11 @@ T* MyShared<T>::get() {
 }
 
 template <typename T>
+T& MyShared<T>::operator*() {
+    return *ptr_;
+}
+
+template <typename T>
 int MyShared<T>::use_count() { return *ref_count_; }
 
 template <typename T>

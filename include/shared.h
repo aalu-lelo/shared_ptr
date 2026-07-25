@@ -14,6 +14,7 @@ class MyShared {
         MyShared<T>& operator=(MyShared<T>&& other) noexcept;
         ~MyShared();
         T* get();
+        T& operator*();
         int use_count();
         static int get_ref_count();
         void reset();
