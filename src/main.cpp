@@ -29,7 +29,9 @@ int main() {
         MyShared<int> p4(new int(40));
         MyShared<int> p5;
         p5 = p4;
-        std::cout << p4.use_count() << std::endl;
+        std::cout << p5.use_count() << std::endl;
     }
+    
+    std::cout<< "ref_count: " << MyShared<int>::get_ref_count() << std::endl;
     return 0;
 }
