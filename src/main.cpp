@@ -43,6 +43,14 @@ int main() {
     }
     */
 
+    // Test to check if the move assignment operator is working correctly.
+    {
+        MyShared<int> p8(new int(60));
+        MyShared<int> p9;
+        p9 = std::move(p8);
+        std::cout << p9.use_count() << std::endl;
+    }
+
     std::cout<< "ref_count: " << MyShared<int>::get_ref_count() << std::endl;
     return 0;
 }
