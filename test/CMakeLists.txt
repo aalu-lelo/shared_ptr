@@ -1,6 +1,6 @@
 find_package(GTest REQUIRED)
 
-add_executable(tests.tsk shared.cpp)
+add_executable(tests.tsk shared.g.cpp)
 
 target_include_directories(tests.tsk PRIVATE ${CMAKE_SOURCE_DIR}/include)
 
