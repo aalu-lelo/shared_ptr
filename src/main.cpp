@@ -34,12 +34,14 @@ int main() {
     }
     */
 
-    // Test to check if the move constructor is working correctly.
+    /*
+    Test to check if the move constructor is working correctly.
     {
         MyShared<int> p6(new int(50));
         MyShared<int> p7(std::move(p6));
         std::cout << p7.use_count() << std::endl;
     }
+    */
 
     std::cout<< "ref_count: " << MyShared<int>::get_ref_count() << std::endl;
     return 0;

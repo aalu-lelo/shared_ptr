@@ -23,6 +23,11 @@ MyShared<T>& MyShared<T>::operator=(const MyShared<T>& other) {
 }
 
 template <typename T>
+MyShared<T>::MyShared(MyShared<T>&& other) noexcept : ptr_(other.ptr_) {
+    other.ptr_ = nullptr;
+}
+
+template <typename T>
 T* MyShared<T>::get() { 
     return ptr_;
 }
@@ -45,7 +50,7 @@ void MyShared<T>::reset() {
 
 template <typename T>
 MyShared<T>::~MyShared() { 
-    ref_count_--;
+    if(ref_count_) ref_count_--;
     if(ref_count_ == 0) {
         delete ptr_;
         ptr_ = nullptr;
