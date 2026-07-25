@@ -24,14 +24,23 @@ int main() {
     }
     */
 
-    // Test to check if the assignment operator is working correctly.
+    /*
+    Test to check if the assignment operator is working correctly.
     {
         MyShared<int> p4(new int(40));
         MyShared<int> p5;
         p5 = p4;
         std::cout << p5.use_count() << std::endl;
     }
-    
+    */
+
+    // Test to check if the move constructor is working correctly.
+    {
+        MyShared<int> p6(new int(50));
+        MyShared<int> p7(std::move(p6));
+        std::cout << p7.use_count() << std::endl;
+    }
+
     std::cout<< "ref_count: " << MyShared<int>::get_ref_count() << std::endl;
     return 0;
 }

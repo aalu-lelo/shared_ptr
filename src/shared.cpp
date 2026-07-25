@@ -10,7 +10,7 @@ MyShared<T>::MyShared(T* ptr) : ptr_(ptr) {
 }
 
 template <typename T>
-MyShared<T>::MyShared(MyShared<T> &other) : ptr_(other.ptr_) {
+MyShared<T>::MyShared(const MyShared<T> &other) : ptr_(other.ptr_) {
     ref_count_++;
 }
 

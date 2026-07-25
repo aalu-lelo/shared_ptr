@@ -8,7 +8,7 @@ class MyShared {
     public:
         MyShared();
         MyShared(T* ptr);
-        MyShared(MyShared<T>& other);
+        MyShared(const MyShared<T>& other);
         MyShared<T>& operator=(const MyShared<T>& other);
         ~MyShared();
         T* get();
