@@ -12,7 +12,8 @@ int main() {
         std::cout << p1.use_count() << std::endl;
     }*/
 
-    // Test to check if the copy constructor is working correctly.
+    /*
+    Test to check if the copy constructor is working correctly.
     {
         MyShared<int> p2(new int(30));
         std::cout << p2.use_count() << std::endl;
@@ -20,6 +21,15 @@ int main() {
         std::cout << p2.use_count() << std::endl;
         std::cout<< *p2.get() << std::endl;
         std::cout << *p3.get() << std::endl;
+    }
+    */
+
+    // Test to check if the assignment operator is working correctly.
+    {
+        MyShared<int> p4(new int(40));
+        MyShared<int> p5;
+        p5 = p4;
+        std::cout << p4.use_count() << std::endl;
     }
     return 0;
 }
