@@ -58,10 +58,13 @@ int main() {
         MyShared<int> p11(p10);
         MyShared<int> p12(new int(80));
         p11 = p12;
+        p10 = p12;
         std::cout << p11.use_count() << std::endl;
-        std::cout << p10.use_count() << std::endl;
+        p11.reset();
+        p10.reset();
+        std::cout << p12.use_count() << std::endl;
+        std::cout << *(p12.get()) << std::endl;
     }
 
-    std::cout<< "ref_count: " << MyShared<int>::get_ref_count() << std::endl;
     return 0;
 }

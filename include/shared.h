@@ -4,7 +4,7 @@ template <typename T>
 class MyShared {
     private:
         T* ptr_;
-        static int ref_count_;
+        int* ref_count_;
     public:
         MyShared();
         MyShared(T* ptr);
@@ -19,5 +19,3 @@ class MyShared {
         void reset();
 };
 
-template <typename T>
-int MyShared<T>::ref_count_ = 0; 
